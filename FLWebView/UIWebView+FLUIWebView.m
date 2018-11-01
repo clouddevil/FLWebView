@@ -10,6 +10,7 @@
 
 @implementation UIWebView (FLWebView)
 
+
 /*
  * Set any delegate view that implements UIWebViewDelegate.
  * FLWKWebView has a comparable method that looks for its own delegates.
@@ -65,18 +66,17 @@
  * WKWebView has nothing comparable to scalesPagesToFit, so we use this method instead.
  * Here, we just update scalesPagesToFit. In FLWKWebView, nothing happens.
 */
-- (void) setScalesPagesToFit: (BOOL) setPages
+- (void)setScalesPagesToFit:(BOOL)scaleToFit
 {
-    self.scalesPageToFit = setPages;
-}
-#pragma mark - Settings
-
-- (void) setAutoresizingMask:(UIViewAutoresizing)autoresizeMask
-{
-    self.autoresizingMask = autoresizeMask;
+    self.scalesPageToFit = scaleToFit;
 }
 
-- (void)setExclusiveTouch:(BOOL)exclTouch
+- (void) setAutoresizeMask:(UIViewAutoresizing)autoresizeMask
+{
+    self.autoresizeMask = autoresizeMask;
+}
+
+- (void)setExclsveTouch:(BOOL)exclTouch
 {
     self.exclusiveTouch = exclTouch;
 }
@@ -109,11 +109,6 @@
 - (UIScrollView *)scrollViewOfWebView
 {
     return self.scrollView;
-}
-
-- (void)setPageToFit:(BOOL)pageToFit
-{
-    self.scalesPageToFit = pageToFit;
 }
 
 

@@ -10,13 +10,15 @@
 #import <objc/runtime.h>
 
 @implementation WKWebView (FLWKWebView)
-@dynamic exclusiveTouch;
+@dynamic scalesPagesToFit;
+@dynamic autoresizeMask;
+@dynamic exclsveTouch;
 @dynamic detectorTypes;
 @dynamic scrollViewbounces;
 @dynamic mediaPlaybckAllowsAirPlay;
-@dynamic  mediaPlaybckRequiresUserAction;
-@dynamic  allowsInlineMediaPlaybck;
-@dynamic pageToFit;
+@dynamic mediaPlaybckRequiresUserAction;
+@dynamic allowsInlineMediaPlaybck;
+
 
 /*
  * Sets a given delegateView as the delegate for this web view.
@@ -63,13 +65,6 @@
     [self loadRequest: [NSURLRequest requestWithURL:[NSURL URLWithString: urlNameAsString]]];
 }
 
-/*
- * This doesn't do anything, as there's no good analogue to scalesPagesToFit in WKWebView.
-*/
-- (void) setScalesPagesToFit: (BOOL) setPages
-{
-    return; // not supported in WKWebView
-}
 
 /*
  * This class method is called when the runtime is loading.
@@ -105,16 +100,23 @@
     });
 }
 
-#pragma mark - Settings
-
-- (void) setAutoresizingMask:(UIViewAutoresizing)autoresizeMask
+/*
+ * This doesn't do anything, as there's no good analogue to scalesPagesToFit in WKWebView.
+ */
+- (void) setScalesPagesToFit: (BOOL) setPages
 {
-    self.autoresizingMask = autoresizeMask;
+    return; // not supported in WKWebView
+}
+
+
+- (void) setAutoresizeMask:(UIViewAutoresizing)autoresizeMask
+{
+    super.autoresizingMask = autoresizeMask;
 }
 
 - (void)setExclusiveTouch:(BOOL)exclTouch
 {
-    self.exclusiveTouch = exclTouch;
+    super.exclusiveTouch = exclTouch;
 }
 
 - (void)setDetectorTypes:(UIDataDetectorTypes)detectorTypes
@@ -144,10 +146,6 @@
 - (UIScrollView *)scrollViewOfWebView
 {
     return self.scrollView;
-}
-
-- (void)setPageToFit:(BOOL)pageToFit
-{
 }
 
 @end

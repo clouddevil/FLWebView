@@ -14,15 +14,15 @@
 */
 @protocol FLWebViewProvider <NSObject>
 
-@property (nonatomic) UIViewAutoresizing autoresizingMask;
-@property (nonatomic) BOOL exclusiveTouch;
+@property (nonatomic) BOOL scalesPagesToFit;
+@property (nonatomic) UIViewAutoresizing autoresizeMask;
+@property (nonatomic) BOOL exclsveTouch;
 @property (nonatomic) BOOL allowsInlineMediaPlaybck;
 @property (nonatomic) BOOL mediaPlaybckAllowsAirPlay;
 @property (nonatomic) BOOL mediaPlaybckRequiresUserAction;
 @property (nonatomic) UIDataDetectorTypes detectorTypes;
 @property (nonatomic) BOOL scrollViewbounces;
 @property (nonatomic, readonly) UIScrollView * scrollViewOfWebView;
-@property (nonatomic) BOOL pageToFit;
 
 
 /*
