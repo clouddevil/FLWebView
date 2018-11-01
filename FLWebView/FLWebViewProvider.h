@@ -55,7 +55,7 @@
 /*
  * Convenience method to load a request from a html string.
  */
-- (void) loadHtmlString: (NSString *) string baseURL:(NSURL *)baseURL;
+- (void) loadHTMLString: (NSString *) string baseURL:(NSURL *)baseURL;
 
 /*
  * Returns true if it is possible to go back, false otherwise.
