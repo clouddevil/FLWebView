@@ -29,6 +29,11 @@
     [self loadRequest: [NSURLRequest requestWithURL:[NSURL URLWithString: urlNameAsString]]];
 }
 
+- (void) loadFromStringHTML: (NSString *) string baseURL:(NSURL *)baseURL
+{
+    [self loadHTMLString:string baseURL:baseURL];
+}
+
 /*
  * The current URL is stored within the request property.
  * WKWebView has this available as a property, so we add it to UIWebView here.
@@ -60,6 +65,7 @@
     }
 }
 
+
 /*
  * WKWebView has nothing comparable to scalesPagesToFit, so we use this method instead.
  * Here, we just update scalesPagesToFit. In FLWKWebView, nothing happens.
@@ -68,5 +74,52 @@
 {
     self.scalesPageToFit = setPages;
 }
+#pragma mark - Settings
+
+- (void) setAutoresizeMask:(UIViewAutoresizing)autoresizeMask
+{
+    self.autoresizingMask = autoresizeMask;
+}
+
+- (void)setExclTouch:(BOOL)exclTouch
+{
+    self.exclusiveTouch = exclTouch;
+}
+
+- (void)setAllowsInlineMediaPlaybck:(BOOL)allowsInlineMediaPlaybck
+{
+    self.allowsInlineMediaPlayback = allowsInlineMediaPlaybck;
+}
+
+- (void)setMediaPlaybckAllowsAirPlay:(BOOL)mediaPlaybckAllowsAirPlay
+{
+    self.mediaPlaybackAllowsAirPlay = mediaPlaybckAllowsAirPlay;
+}
+
+- (void)setMediaPlaybckRequiresUserAction:(BOOL)mediaPlaybckRequiresUserAction
+{
+    self.mediaPlaybackRequiresUserAction = mediaPlaybckRequiresUserAction;
+}
+
+- (void)setDetectorTypes:(UIDataDetectorTypes)detectorTypes
+{
+    self.dataDetectorTypes = detectorTypes;
+}
+
+- (void)setScrollViewbounces:(BOOL)scrollViewbounces
+{
+    self.scrollView.bounces = scrollViewbounces;
+}
+
+- (UIScrollView *)scrollViewOfWebView
+{
+    return self.scrollView;
+}
+
+- (void)setPageToFit:(BOOL)pageToFit
+{
+    self.scalesPageToFit = pageToFit;
+}
+
 
 @end

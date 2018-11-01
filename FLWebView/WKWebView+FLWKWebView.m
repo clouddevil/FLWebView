@@ -10,6 +10,14 @@
 #import <objc/runtime.h>
 
 @implementation WKWebView (FLWKWebView)
+@dynamic exclTouch;
+@dynamic autoresizeMask;
+@dynamic detectorTypes;
+@dynamic scrollViewbounces;
+@dynamic mediaPlaybckAllowsAirPlay;
+@dynamic  mediaPlaybckRequiresUserAction;
+@dynamic  allowsInlineMediaPlaybck;
+@dynamic pageToFit;
 
 /*
  * Sets a given delegateView as the delegate for this web view.
@@ -56,6 +64,11 @@
     [self loadRequest: [NSURLRequest requestWithURL:[NSURL URLWithString: urlNameAsString]]];
 }
 
+- (void) loadFromStringHTML: (NSString *) string baseURL:(NSURL *)baseURL
+{
+    [self loadHTMLString:string baseURL:baseURL];
+}
+
 /*
  * This doesn't do anything, as there's no good analogue to scalesPagesToFit in WKWebView.
 */
@@ -96,6 +109,51 @@
             method_exchangeImplementations(originalMethod, swizzledMethod);
         }
     });
+}
+
+#pragma mark - Settings
+
+- (void) setAutoresizeMask:(UIViewAutoresizing)autoresizeMask
+{
+    self.autoresizingMask = autoresizeMask;
+}
+
+- (void)setExclTouch:(BOOL)exclTouch
+{
+    self.exclusiveTouch = exclTouch;
+}
+
+- (void)setDetectorTypes:(UIDataDetectorTypes)detectorTypes
+{
+}
+
+- (void)setScrollViewbounces:(BOOL)scrollViewbounces
+{
+    self.scrollView.bounces = scrollViewbounces;
+}
+
+- (void)setAllowsInlineMediaPlaybck:(BOOL)allowsInlineMediaPlaybck
+{
+//    self.configuration.allowsInlineMediaPlayback = allowsInlineMediaPlaybck;
+}
+
+- (void)setMediaPlaybckAllowsAirPlay:(BOOL)mediaPlaybckAllowsAirPlay
+{
+//    self.configuration.mediaPlaybackAllowsAirPlay = mediaPlaybckAllowsAirPlay;
+}
+
+- (void)setMediaPlaybckRequiresUserAction:(BOOL)mediaPlaybckRequiresUserAction
+{
+//    self.configuration.mediaPlaybackRequiresUserAction = mediaPlaybckRequiresUserAction;
+}
+
+- (UIScrollView *)scrollViewOfWebView
+{
+    return self.scrollView;
+}
+
+- (void)setPageToFit:(BOOL)pageToFit
+{
 }
 
 @end

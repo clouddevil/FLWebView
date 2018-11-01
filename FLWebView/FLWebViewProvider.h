@@ -14,6 +14,17 @@
 */
 @protocol FLWebViewProvider <NSObject>
 
+@property (nonatomic) UIViewAutoresizing autoresizeMask;
+@property (nonatomic) BOOL exclTouch;
+@property (nonatomic) BOOL allowsInlineMediaPlaybck;
+@property (nonatomic) BOOL mediaPlaybckAllowsAirPlay;
+@property (nonatomic) BOOL mediaPlaybckRequiresUserAction;
+@property (nonatomic) UIDataDetectorTypes detectorTypes;
+@property (nonatomic) BOOL scrollViewbounces;
+@property (nonatomic, readonly) UIScrollView * scrollViewOfWebView;
+@property (nonatomic) BOOL pageToFit;
+
+
 /*
  * Return the active NSURLRequest of this webview.
  * The methodology is a bit different between UIWebView and WKWebView.
