@@ -14,8 +14,8 @@
 */
 @protocol FLWebViewProvider <NSObject>
 
-@property (nonatomic) UIViewAutoresizing autoresizeMask;
-@property (nonatomic) BOOL exclTouch;
+@property (nonatomic) UIViewAutoresizing autoresizingMask;
+@property (nonatomic) BOOL exclusiveTouch;
 @property (nonatomic) BOOL allowsInlineMediaPlaybck;
 @property (nonatomic) BOOL mediaPlaybckAllowsAirPlay;
 @property (nonatomic) BOOL mediaPlaybckRequiresUserAction;

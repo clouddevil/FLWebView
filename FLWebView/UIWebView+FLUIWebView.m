@@ -76,12 +76,12 @@
 }
 #pragma mark - Settings
 
-- (void) setAutoresizeMask:(UIViewAutoresizing)autoresizeMask
+- (void) setAutoresizingMask:(UIViewAutoresizing)autoresizeMask
 {
     self.autoresizingMask = autoresizeMask;
 }
 
-- (void)setExclTouch:(BOOL)exclTouch
+- (void)setExclusiveTouch:(BOOL)exclTouch
 {
     self.exclusiveTouch = exclTouch;
 }
