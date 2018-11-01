@@ -29,11 +29,6 @@
     [self loadRequest: [NSURLRequest requestWithURL:[NSURL URLWithString: urlNameAsString]]];
 }
 
-- (void) loadFromStringHTML: (NSString *) string baseURL:(NSURL *)baseURL
-{
-    [self loadHTMLString:string baseURL:baseURL];
-}
-
 /*
  * The current URL is stored within the request property.
  * WKWebView has this available as a property, so we add it to UIWebView here.

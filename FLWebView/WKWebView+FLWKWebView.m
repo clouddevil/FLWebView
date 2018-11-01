@@ -63,11 +63,6 @@
     [self loadRequest: [NSURLRequest requestWithURL:[NSURL URLWithString: urlNameAsString]]];
 }
 
-- (void) loadFromStringHTML: (NSString *) string baseURL:(NSURL *)baseURL
-{
-    [self loadHTMLString:string baseURL:baseURL];
-}
-
 /*
  * This doesn't do anything, as there's no good analogue to scalesPagesToFit in WKWebView.
 */
